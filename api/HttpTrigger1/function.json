@@ -1,12 +1,14 @@
 {
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": ["get"],
-      "route": "todos"
+      "methods": [
+        "get",
+        "post"
+      ]
     },
     {
       "type": "http",
@@ -14,5 +16,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/TodosRead/index.js"
+  "scriptFile": "../dist/HttpTrigger1/index.js"
 }
