@@ -4,3 +4,5 @@
 
 `npm start`
 
+functionsのトリガー変更したらapiディレクトリから`npm run build`しないと、distに更新かからないの、なぜなぜ？？？
+
