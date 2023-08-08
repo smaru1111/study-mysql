@@ -37,11 +37,11 @@ async function getData() {
 module.exports = async function (context: Context, req: HttpRequest) {
     try {
         context.log('JavaScript HTTP trigger function processed a request.');
-        const items = await getData();
-        context.log(items);
+        const data = await getData();
+        context.log(data);
 
         context.res = {
-            body: items
+            body: data
         };
     } catch (error) {
         context.res = {
