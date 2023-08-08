@@ -94,7 +94,7 @@ const App = () => {
         <div className='body-container'>
             <h1>Todo App</h1>
             <h3>使用技術</h3>
-            <p>React / typescript / Azure Functions / Azure Database for MySQL</p>
+            <p>React / typescript / Azure Static Web App / Azure Functions / Azure Database for MySQL</p>
             <a href="https://github.com/smaru1111/study-mysql" style={{color: "gray"}}>GitHubリポジトリ</a>
             <div className='input-container'>
                 {/* バリデーションも実装 */}
