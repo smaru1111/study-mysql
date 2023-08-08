@@ -22,9 +22,10 @@ const App = () => {
         })();
     }, []);
 
+    // Todoリストにデータを追加する関数
     const addData = async (inputValue: string) => {
         // APIコール
-        const res = await fetch(`/api/addData`, {
+        await fetch(`/api/addData`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,6 +43,29 @@ const App = () => {
         // inputのvalueを空にする
         setInputValue("");
     };
+
+    // Todoリストからデータを削除する関数
+    const deleteData = async (id: number) => {
+        // APIコール
+        console.log("delete_id: "+id);
+        
+        await fetch(`/api/deleteData`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: id }),
+        });
+        // Todoリストを更新
+        (async function () {
+        // APIコール
+            const todoItems = await fetch(`/api/getAllData`);
+            const json = await todoItems.json();
+            console.log(json);
+            setTodoList(json);
+        })();
+    };
+
     
     return (
         <div className='body-container'>
@@ -55,7 +79,7 @@ const App = () => {
                 {todoList.map((item, index) => (
                     <li key={index} className='todo-item'>
                         <p>{item.title}</p>
-                        <button>削除</button>
+                        <button onClick={ () => deleteData(item.id)}>削除</button>
                     </li>
                 ))}
             </ul>
